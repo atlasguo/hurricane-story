@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Hurricane Story</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href="css/mapbox-gl.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/icon.png">
+    <script src='js/mapbox-gl.js'></script>
+
+
+</head>
+
+<body>
+	<div class="container">
+
+
+	<p1>
+    The Hurricane Story:
+    <br/>
+    Examining Spatiotemporal Pattern of Twitter Trajectory in 2017 Atlantic Hurricane Season <br/>
+	</p1>
+
+
+    <p3>
+    There is an increasing risk of tropical cyclones recent years causing a large amount of loss of assets. However, the fatalities are relatively low because of effective protective actions such as getting sheltered and evacuated. A more comprehensive understanding of the evacuation behaviors will greatly benefit the management. 
+    <br/><br/>Post-event survey is the traditional practice to collect the information of evacuation behaviors with limitation of high cost and low efficiency, while user-generated social media data provides great potentials to better understand and detect the spatiotemporal pattern of the evacuation behaviors during natural hazards. 
+    </p3>
+
+        
+    <img class="hurricanes" src="assets/hurricanes.png" alt="">
+    <p2>
+    Map of Major Hurricanes in 2017 Atlantic Hurricane Season <br/>
+    </p2>
+
+    <p3><br/><br/>
+    Based on Twitter data collected during 2017 Atlantic Hurricane Season, we generate the evacuation trajectories of citizens in the impacted communities and visualize the movement path. In this map, the red color shows time range: The color red-yellow-blue indicates Auguest-September-October 2017.<br/>
+    </p3>
+
+
+    <div class="map_container">
+	   <div id='map1' ></div>
+    </div>
+
+    <p3><br/><br/>
+    We can easily find the two biggest clustering, which are the red trajectories (showing people's evacating routes during Hurricane Harvey in August 2017) and the yellow ones (showing the evacuating routes during Hurricane Irma in September 2017).<br/><br/>
+
+    To better understand where are people moving from, as well as where are people moving to, we borrow the idea of wind-rose map, and draw these charts below by different state, where moving angles are the same, and the distances are proportionally decreased. The color here shows the same time information as before.
+
+    We move all these chart to the centroid of each state and make these two maps. The first map shows the origin (starting location) of each trajectory by state, and the second map shows the destination (ending location).
+
+    </p3>
+
+    <div class="map_container">
+       <div id='map2' ></div>
+    </div>
+
+    <div class="map_container">
+       <div id='map3' ></div>
+    </div>
+
+
+    <p3>
+    
+    It is interesting to explore the result: As for origin, a large group of people were traveing from Texas towards northeast, west and even southeast; a lot of people were traveling from Florida to the north and north west, which clearly shows the evacuation pattern during the Hurricane Harvey and Irma. As for the destination, California would one of most welcome terminal, and the northeast U.S also takes a lot of evacuees.<br/><br/><br/>
+    </p3>
+    <p2>
+    Design & Cartography by Chenxiao (Atlas) Guo, Dec-2018
+	</p3>
+
+	</div>
+
+
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiYXRsYXNrd29rIiwiYSI6ImNqbzAzZGo4ejAwNnczd3BnZjY0cmdlMnAifQ.-1JEsHM_MmQMXonEUsnzgw';
+
+var map1 = new mapboxgl.Map({
+    container: 'map1', // container id
+    style: 'mapbox://styles/atlaskwok/cjpsjuh4o120g2so25po6cjoq', 
+    center: [-88, 33], // starting position [lng, lat]
+    zoom: 3 // starting zoom
+});
+
+var map2 = new mapboxgl.Map({
+    container: 'map2',
+    style: 'mapbox://styles/atlaskwok/cjpste2tx41sk2qo4xyft3vm8',
+    center: [-88, 33], // starting position [lng, lat]
+    zoom: 3 // starting zoom
+});
+
+var map3 = new mapboxgl.Map({
+    container: 'map3', // container id
+    style: 'mapbox://styles/atlaskwok/cjpsriswm7ox92rqoiiqmoyt8',
+    center: [-88, 33], // starting position [lng, lat]
+    zoom: 3 // starting zoom
+});
+
+map1.addControl(new mapboxgl.NavigationControl());
+map2.addControl(new mapboxgl.NavigationControl());
+map3.addControl(new mapboxgl.NavigationControl());
+
+</script>
+
+</body>
+</html>
