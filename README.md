@@ -1,4 +1,4 @@
-# hurricane
+# Hurricane Story
 
 University of Wisconsin-Madison
 
